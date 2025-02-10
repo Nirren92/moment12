@@ -1,0 +1,25 @@
+﻿@inherits LayoutComponentBase
+    <header class="d-flex align-items-center" style="height: 150px;padding: 0 20px;background:lightslategray;">
+        <img src="logo.png" style="height: 60px;" alt="logo">
+        <div class="flex-grow-1 text-center">
+            <h1 class="mb-0">Niklas Sida</h1>
+        </div>
+        <div>
+            <p><strong>Dagens datum: <br>@DateTime.Now.ToString("yyyy-MM-dd")</strong></p>
+        </div>
+    </header>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
+            <NavMenu />
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <article class="content">
+                @Body
+            </article>
+        </main>
+    </div>
+</div>

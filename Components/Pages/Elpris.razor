@@ -1,0 +1,70 @@
+﻿@page "/elpris"
+@inject HttpClient Http
+<h2>elpris</h2>
+
+<p>Elpris data för det senaste dygnet</p>
+
+@if(elpris == null)
+{
+    <p> laddar...</p>
+}
+else
+{
+    <div class="table-responsive">
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th> SEK_per_kWh</th>
+                    <th> EUR_per_kWh</th>
+                    <th> EXR</th>
+                    <th> time_start</th>
+                    <th> time_end</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var pris in elpris)
+                {
+                    <tr>
+                        <td>@pris.SEK_per_kWh</td>
+                        <td>@pris.EUR_per_kWh</td>
+                        <td>@pris.EXR</td>
+                        <td>@pris.time_start</td>
+                        <td>@pris.time_end</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+
+
+
+@code {
+
+    //array för prisdata
+    private Elprisdata[]? elpris;
+
+
+    //http anrop
+    protected override async Task OnInitializedAsync()
+    {
+        //hämtar år och dag
+        var currentYear = DateTime.Now.Year;
+        var currentDay = DateTime.Now.Day.ToString("D2");
+        var currentMonth = DateTime.Now.Month.ToString("D2");
+        elpris = await Http.GetFromJsonAsync<Elprisdata[]>("https://www.elprisetjustnu.se/api/v1/prices/"+currentYear +"/"+currentMonth+"-" +currentDay+"_SE3.json");
+        
+    }
+
+    //modell för elpris data
+    public class Elprisdata
+    {
+        public decimal? SEK_per_kWh { get; set; }
+        public decimal? EUR_per_kWh { get; set; }
+        public decimal? EXR { get; set; }
+        public DateTime? time_start { get; set; }
+        public DateTime? time_end { get; set; }
+    }
+
+}

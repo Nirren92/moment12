@@ -1,0 +1,26 @@
+﻿
+@rendermode InteractiveServer
+
+<h3>converter</h3>
+<p>@converttext</p>
+<input type="number" @bind="inputValue" />
+<button class="btn btn-primary" @onclick="Convert">Convert</button>
+<p>@result @converterEnhet</p>
+
+
+@code {
+    private double inputValue;
+    private double result;
+    [Parameter]
+    public double convertValue { get; set; }
+    [Parameter]
+    public string converttext { get; set; }
+    [Parameter]
+    public string converterEnhet { get; set; }
+
+    private void Convert()
+    {
+        result = inputValue * convertValue;
+    }
+
+}
