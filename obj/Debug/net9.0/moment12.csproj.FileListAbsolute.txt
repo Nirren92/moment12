@@ -77,3 +77,4 @@ D:\studier\dt191G\moment12\obj\Debug\net9.0\ref\moment12.dll
 D:\studier\dt191G\moment12\obj\Debug\net9.0\compressed\9edtas5ob6-5ipweew5fc.gz
 D:\studier\dt191G\moment12\obj\Debug\net9.0\compressed\cperbyixqv-1dbdogz35e.gz
 D:\studier\dt191G\moment12\obj\Debug\net9.0\compressed\t4p0g2i47f-1dbdogz35e.gz
+D:\studier\dt191G\moment12\obj\Debug\net9.0\moment12.sourcelink.json
