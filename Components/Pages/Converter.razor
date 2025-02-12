@@ -5,7 +5,7 @@
 <p>@converttext</p>
 <input type="number" @bind="inputValue" />
 <button class="btn btn-primary" @onclick="Convert">Convert</button>
-<p>@result @converterEnhet</p>
+<p>@String.Format("{0:F2}", result) @converterEnhet </p>
 
 
 @code {
